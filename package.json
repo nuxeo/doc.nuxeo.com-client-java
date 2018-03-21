@@ -1,0 +1,38 @@
+{
+  "name": "Nuxeo-documentation-content",
+  "description": "doc.nuxeo.com Content",
+  "license": "CC",
+  "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Andrew Goodricke",
+    "email": "github@andrewgoodricke.com",
+    "url": "http://andrewgoodricke.com"
+  },
+  "dependencies": {
+    "js-yaml": "^3.11.0",
+    "nuxeo-docs-builder": "nuxeo/doc.nuxeo.com#v10.1.4"
+  },
+  "config": {
+    "browser": "chromium-browser"
+  },
+  "scripts": {
+    "test": "npm run yaml_lint config.yml",
+    "verify": "docs-verify",
+    "predev": "npm ci || npm i",
+    "dev": "docs-dev-server",
+    "dev:no-clean": "docs-dev-server --no-clean",
+    "copy_assets": "npm run copy_assets:default && npm run copy_assets:module",
+    "copy_assets:default": "mkdir -p ./site/assets/`./node_modules/nuxeo-docs-builder/bin/version-path` && cp -r ./assets/* ./site/assets/`./node_modules/nuxeo-docs-builder/bin/version-path`",
+    "copy_assets:module": "cp -r ./node_modules/nuxeo-docs-builder/assets/* ./site/assets/ && cp -r ./node_modules/nuxeo-docs-builder/assets/fonts ./site/assets/css/",
+    "yaml_lint": "js-yaml -t > /dev/null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nuxeo/doc.nuxeo.com-content.git"
+  },
+  "bugs": {
+    "url": "git@github.com:nuxeo/doc.nuxeo.com-content.git/issues"
+  },
+  "homepage": "http://doc.nuxeo.com"
+}
