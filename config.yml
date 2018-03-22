@@ -5,10 +5,8 @@ default:
       -
         space_path: clients/java
         space_name: Client SDK - Java
-    dev_browser_path: nxdoc
+    dev_browser_path: /
   verify_paths:
-    - nxdoc
-    - userdoc
-    - nxdoc/index.html
+    - index.html
 development:
   isDev: true

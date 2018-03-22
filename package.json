@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "js-yaml": "^3.11.0",
-    "nuxeo-docs-builder": "nuxeo/doc.nuxeo.com#v10.1.4"
+    "nuxeo-docs-builder": "nuxeo/doc.nuxeo.com#v10.1.5"
   },
   "config": {
     "browser": "chromium-browser"
