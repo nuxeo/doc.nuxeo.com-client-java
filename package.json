@@ -1,6 +1,6 @@
 {
-  "name": "Nuxeo-documentation-content",
-  "description": "doc.nuxeo.com Content",
+  "name": "Nuxeo-documentation-client-java",
+  "description": "doc.nuxeo.com Client Java",
   "license": "CC",
   "private": true,
   "version": "1.0.0",
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nuxeo/doc.nuxeo.com-content.git"
+    "url": "git@github.com:nuxeo/doc.nuxeo.com-client-java.git"
   },
   "bugs": {
-    "url": "git@github.com:nuxeo/doc.nuxeo.com-content.git/issues"
+    "url": "git@github.com:nuxeo/doc.nuxeo.com-client-java.git/issues"
   },
   "homepage": "http://doc.nuxeo.com"
 }
