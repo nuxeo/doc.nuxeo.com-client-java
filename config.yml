@@ -6,7 +6,7 @@ default:
       -
         space_path: clients/java
         space_name: Client SDK - Java
-    dev_browser_path: /
+    dev_browser_path: /java
   verify_paths:
     - index.html
 development:
