@@ -1,6 +1,7 @@
 default:
   site:
     review_period: '13 months'
+    default_space: 'client'
     spaces:
       -
         space_path: clients/java
