@@ -1,5 +1,5 @@
 ---
-title: Java Client SDK
+title: Java Client SDK 3.1
 description: Nuxeo Client SDK - Java
 review:
     comment: ''
