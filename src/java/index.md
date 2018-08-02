@@ -55,7 +55,7 @@ NuxeoClient client = new NuxeoClient.Builder()
 
 Client is now ready to execute requests to Nuxeo Server. After its creation, it will contain the current Nuxeo user and the Nuxeo Server version.
 
-More documentation about client [options]({{page page=''}}).
+More documentation about client [options]({{page page='configuration'}}).
 
 ### Fetch your first document
 

@@ -8,7 +8,7 @@ review:
 labels:
     - java-client
 tree_item_index: 100
-section_parent: clients/java
+section_parent: java
 toc: true
 
 ---
