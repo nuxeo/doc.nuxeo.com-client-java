@@ -22,14 +22,14 @@ Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environm
 
 ### Installation
 
-To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.1.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.1.1-SNAPSHOT%7Ejar%7E).
+To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.2.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.2.1-SNAPSHOT%7Ejar%7E).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
 ```xml
 <dependency>
   <groupId>org.nuxeo.client</groupId>
   <artifactId>nuxeo-java-client</artifactId>
-  <version>3.1.1-SNAPSHOT</version>
+  <version>3.2.1-SNAPSHOT</version>
 </dependency>
 
 <repository>
