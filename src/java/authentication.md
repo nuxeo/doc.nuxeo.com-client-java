@@ -39,10 +39,19 @@ new NuxeoClient.Builder().authentication(new PortalSSOAuthInterceptor("Administr
 
 ## Token Authentication
 
-Token authentication is enabled by default on Nuxeo server, to use it in Java client
+Token authentication is enabled by default on Nuxeo server, to use it in Java client:
 ```java
 new NuxeoClient.Builder().authentication(new TokenAuthInterceptor("nuxeoToken"));
 ```
+Token obtention is not implemented in java client and should be done by following this [documentation](https://github.com/nuxeo/nuxeo/tree/master/nuxeo-services/login/nuxeo-platform-login-token#implementation).
+
+## JWT Authentication
+
+JWT authentication can be enabled on Nuxeo server if you set up a secret with `nuxeo.jwt.secret` in your nuxeo.conf, to use it in java client:
+```java
+new NuxeoClient.Builder().authentication(new JWTAuthInterceptor("nuxeoToken"));
+```
+There's currently no way to obtain a JWT token through built-in REST API.
 
 ## Implement Your Own
 
