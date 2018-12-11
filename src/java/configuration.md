@@ -63,7 +63,8 @@ Every sent/received object in Nuxeo Java Client extends one of these types:
 They both offer a `getEntityType` method and handle `entity-type` read/write in JSON (used for serialization/deserialization needs).
 
 There're other types for object consume/produce by the client:
-- `Connectable` interface for objects with connectivity needs or owning sub-objects with connectivity needs
+- `Connectable` interface for objects with connectivity needs or holding sub objects with connectivity needs
+- `Entities` class for objects holding a list of entities
 - `PaginableEntity` class for objects with pagination capabilities
 
 **Let's see each type in detail:**
@@ -78,6 +79,8 @@ Documents children = root.fetchChildren();
 ```
 
 - `Connectable` interface is mainly used to handle connectable entity. Every class implementing this interface and returned by the client will receive a call to `reconnectWith(NuxeoClient)` after post treatments. This allows to give client to connectable entity, to reconnect children in collection objects (such as Documents, Users, ...).
+
+- `Entities` is an entity with some useful API to handle container such as directories, tasks, workflows, comments...
 
 - `PaginableEntity` is an entity with extra fields for pagination information (such as totalSize, pageIndex, pageCount, isNextPageAvailable, ...). This is mainly used for documents on query API for instance.
 
@@ -126,49 +129,54 @@ The manager configuration is isolated from the client one.
 
 This means that each configuration made on a manager belongs to this manager instance.
 For instance:
-```
+```java
 Repository repository1 = client.repository().schemas("*");
 Repository repository2 = client.repository().schemas("dc");
 
 // document containing all schemas
 Document doc1 = repository1.fetchDocumentRoot();
 // document containing only dublincore
-Document doc2 = repository1.fetchDocumentRoot();
+Document doc2 = repository2.fetchDocumentRoot();
 ```
 {{/callout}}
 
 ### Common Configuration
 
-| Method                                              | Description                                                                                 |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| timeout(long)                                       | Configure connect and read timeout, unit is seconds                                         |
-| connectTimeout(long)                                | Configure connect timeout, unit is seconds                                                  |
-| readTimeout(long)                                   | Configure read timeout, unit is seconds                                                     |
-| header(boolean, String, String, String...)          | Replace or append header of a given name with given values                                    |
-| header(String, String, String...)                   | Replace header of a given name with given values                                              |
-| transactionTimeout(long)                            | Configure transaction timeout on Nuxeo Server                                               |
-| enrichers(boolean, String, String, String...)       | Replace or append enricher of given type with given values                                  |
-| enrichers(String, String, String...)                | Replace enricher of given type with given values                                            |
-| enrichersForDocument(String, String...)             | Replace enricher for document with given values                                             |
-| fetchProperties(boolean, String, String, String...) | Replace or append fetch properties of given type with given values                          |
-| fetchProperties(String, String, String...)          | Replace fetch properties of given type with given values                                    |
-| fetchPropertiesForDocument(String, String...)       | Replace fetch properties for document with given values                                     |
-| fetchPropertiesForGroup(String, String...)          | Replace fetch properties for group with given values                                        |
-| depth(String)                                       | Replace the depth header with given value, possible values are `root`, `children` and `max` |
-| version(String)                                     | Replace the set versioning option header with given value                                   |
-| schemas(boolean, String, String...)                 | Replace or append schemas to fetch with given values, `*` is allowed to fetch them all      |
-| schemas(String, String...)                          | Replace schemas to fetch with given values, `*` is allowed to fetch them all                |
+| Method                                                 | Description                                                                                 |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| timeout(long)                                          | Configure connect and read timeout, unit is seconds                                         |
+| connectTimeout(long)                                   | Configure connect timeout, unit is seconds                                                  |
+| readTimeout(long)                                      | Configure read timeout, unit is seconds                                                     |
+| header(String, boolean)                                | Replace header of a given name with given value                                             |
+| header(String, int, int...)                            | Replace header of a given name with given values                                            |
+| header(boolean, String, int, int...)                   | Replace or append header of a given name with given values                                  |
+| header(String, Serializable, Serializable...)          | Replace header of a given name with given values                                            |
+| header(boolean, String, Serializable, Serializable...) | Replace or append header of a given name with given values                                  |
+| header(String, String, String...)                      | Replace header of a given name with given values                                            |
+| header(boolean, String, String, String...)             | Replace or append header of a given name with given values                                  |
+| transactionTimeout(long)                               | Configure transaction timeout on Nuxeo Server                                               |
+| enrichers(boolean, String, String, String...)          | Replace or append enricher of given type with given values                                  |
+| enrichers(String, String, String...)                   | Replace enricher of given type with given values                                            |
+| enrichersForDocument(String, String...)                | Replace enricher for document with given values                                             |
+| fetchProperties(boolean, String, String, String...)    | Replace or append fetch properties of given type with given values                          |
+| fetchProperties(String, String, String...)             | Replace fetch properties of given type with given values                                    |
+| fetchPropertiesForDocument(String, String...)          | Replace fetch properties for document with given values                                     |
+| fetchPropertiesForGroup(String, String...)             | Replace fetch properties for group with given values                                        |
+| depth(String)                                          | Replace the depth header with given value, possible values are `root`, `children` and `max` |
+| version(String)                                        | Replace the set versioning option header with given value                                   |
+| schemas(boolean, String, String...)                    | Replace or append schemas to fetch with given values, `*` is allowed to fetch them all      |
+| schemas(String, String...)                             | Replace schemas to fetch with given values, `*` is allowed to fetch them all                |
 
 ### Builder Configuration
 
-| Method                           | Description                                            |
-| -------------------------------- | ------------------------------------------------------ |
-| authentication(String, String)   | Configure basic authentication with user/password      |
-| authentication(Interceptor)      | Configure another kind of authentication               |
-| cache(NuxeoResponseCache)        | Configure a cache for client                           |
-| interceptor(Interceptor)         | Add a new OkHttp interceptor                           |
+| Method                           | Description                                             |
+| -------------------------------- | ------------------------------------------------------- |
+| authentication(String, String)   | Configure basic authentication with user/password       |
+| authentication(Interceptor)      | Configure another kind of authentication                |
+| cache(NuxeoResponseCache)        | Configure a cache for client                            |
+| interceptor(Interceptor)         | Add a new OkHttp interceptor                            |
 | registerEntity(String, Class<?>) | Register a new entity type in client marshalling system |
-| url(String)                      | The Nuxeo Server URL                                   |
+| url(String)                      | The Nuxeo Server URL                                    |
 
 You must configure authentication and URL at least.
 
@@ -179,6 +187,29 @@ You must configure authentication and URL at least.
 | Method          | Description                                                        |
 | --------------- | ------------------------------------------------------------------ |
 | voidOperation() | Set void operation header for next operation calls on this manager |
+
+#### Examples
+
+Basic example on client:
+```java
+NuxeoClient client = client.schemas("*")
+                           .connectTimeout(30)
+                           .readTimeout(60)
+                           .header(HttpHeaders.NX_ES_SYNC, true)
+                           // same effect than transactionTimeout(long)
+                           .header(HttpHeaders.NUXEO_TX_TIMEOUT, 300)
+                           .header("source", "FROM_JAVA_CLIENT");
+```
+
+Example on repository manager, configuration will affect only this repository instance:
+```java
+Repository repository = client.repository()
+                              .enrichersForDocument("thumbnail", "breadcrumb")
+                              .fetchPropertiesForDocument("dc:creator");
+Document doc = repository.fetchDocumentByPath("/default-domain");
+User creator = doc.getPropertyValue("dc:creator"); // we get an User object because of fetchProperties
+Documents breadcrumb = doc.getContextParameter("breadcrumb");
+```
 
 &nbsp;
 
