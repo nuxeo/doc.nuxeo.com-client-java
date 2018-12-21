@@ -20,7 +20,7 @@ Let's first retrieve directory manager to handle them:
 DirectoryManager directoryManager = client.directoryManager();
 ```
 
-Directory manager only haves two APIs:
+Directory manager only have two APIs:
 - fetchDirectories to fetch all directories configured on Nuxeo Server
 - directory which takes a directory name and returns the directory entity
 
@@ -64,7 +64,7 @@ foo.putLabelProperty("New Foo");
 nature.updateEntry(foo);
 ```
 
-As `DirectoryEntry` is a [connectable entity]({{page page='configuration#objects'}}) and we get `foo` from client we can do the following:
+As `DirectoryEntry` is a [connectable entity]({{page page='configuration'}}#objects) and we get `foo` from client we can do the following:
 ```java
 DirectoryEntry foo = directoryManager.directory("nature").fetchEntry("foo");
 foo.putLabelProperty("New Foo");
@@ -73,7 +73,7 @@ foo.update();
 
 ## Delete
 
-APIs below are available to delete directory entry:
+API below is available to delete directory entry:
 - deleteEntry which takes a directory entry id
 
 Let's delete foo:
@@ -81,7 +81,7 @@ Let's delete foo:
 directoryManager.directory("nature").deleteEntry("foo");
 ```
 
-As `DirectoryEntry` is a [connectable entity]({{page page='configuration#objects'}}) and we get `foo` from client we can do the following:
+As `DirectoryEntry` is a [connectable entity]({{page page='configuration'}}#objects) and we get `foo` from client we can do the following:
 ```java
 DirectoryEntry foo = directoryManager.directory("nature").fetchEntry("foo");
 foo.delete();

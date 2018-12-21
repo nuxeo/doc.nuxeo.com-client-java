@@ -15,11 +15,11 @@ toc: true
 
 This section is about how handling blobs with Nuxeo Java Client.
 
-There's several way in Nuxeo and so in Java Client to handle blobs.
+There are several ways in Nuxeo and so in Java Client to handle blobs.
 
 ## Blob Interface
 
-In Java Client we use `Blob` as main interface to deal with blobs with server. In this page we mainly use `FileBlob` for clarity nevertheless every examples are also working with `StreamBlob`.
+In Java Client, we use `Blob` as the main interface to deal with blobs with server. In this page we mainly use `FileBlob` for clarity nevertheless every example are also working with `StreamBlob`.
 
 For both implementation, we highly recommend to give `mimeType` if possible. This allows less processing for Nuxeo Server.
 
@@ -34,7 +34,7 @@ BatchUploadManager batchUploadManager = client.batchUploadManager();
 
 ### Attach a Blob to a Document Using Automation
 
-We're assuming `/file001` already exists. We're gonna upload a blob with batch upload manager and then attach it to `file001`.
+We're assuming `/file001` already exists. We're going to upload a blob with batch upload manager and then attach it to `file001`.
 
 ```java
 // create a new batch
@@ -97,7 +97,7 @@ nuxeoClient.operation(Operations.BLOB_ATTACH_ON_DOCUMENT)
            .execute();
 ```
 
-### Create a document from a Blob
+### Create a Document from a Blob
 
 We're gonna upload, create `file002` and attach a blob using `FileManager.Import`:
 
@@ -116,7 +116,7 @@ APIs below are available on repository manager to fetch blob:
 
 You also have `streamBlob` on `Document` when object is connected.
 
-In both case you get a `StreamBlob` exposing an `InputStream` which must be closed because it is directly linked to the HTTP connection.
+In both case, you get a `StreamBlob` exposing an `InputStream` which must be closed because it is directly linked to the HTTP connection.
 
 ```java
 StreamBlob blob = nuxeoClient.repository().streamBlobByPath("/file001", "file:content");

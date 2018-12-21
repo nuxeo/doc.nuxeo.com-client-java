@@ -13,13 +13,13 @@ toc: true
 
 ---
 
-This section is about how running automation with Nuxeo Java Client.
+This section is about how to run automation with Nuxeo Java Client.
 
-Operation manager is instantiated for each automation to run, this give us a high isolation for each request to automation.
+Operation manager is instantiated for each automation to run, this gives us high isolation for each request to automation.
 
-Automation input can be anything you want, Blob, Blobs, Document, Documents or primitive type. In order to give a document reference as input to automation, you need to use `DocRef` or `DocRefs`.
+Automation input can be anything you want, Blob, Blobs, Document, Documents or primitive type. To give a document reference as input to automation, you need to use `DocRef` or `DocRefs`.
 
-Automation output is dynamic and leverage [marshaller]({{page page='configuration#marshalling'}}) capabilities in order to return proper Java Client object, if marshaller is not found client will return a plain string.
+Automation output is dynamic and leverage [marshaller]({{page page='configuration'}}#marshalling) capabilities in order to return proper Java Client object, if marshaller is not found client will return a plain string.
 
 ## Document.Create
 

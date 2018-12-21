@@ -98,7 +98,7 @@ Tasks tasks = note.fetchTasks();
 There's task manager to handle tasks for a workflow.
 
 APIs below are available on task manager to handle tasks:
-- fetchTasks which take an user id, a workflow instance id and a workflow model name
+- fetchTasks which take a user id, a workflow instance id and a workflow model name
 - fetchTask which takes a task id
 - reassign which takes a task id, a list of actors and a comment
 - reassign which takes a task id, a list of actors serialized in string and a comment
