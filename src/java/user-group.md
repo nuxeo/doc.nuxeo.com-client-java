@@ -15,8 +15,9 @@ toc: true
 
 This section is about how handling users and groups with Nuxeo Java Client.
 
-User is highly configurable in Nuxeo. Java Client allows such configurability but also offer common methods to get name, password, email...
-This page presents examples on basic configuration. If you need to get/set more properties you can use method below:
+User is highly configurable in Nuxeo. Java Client allows such configurability but also offer common methods to get name, password, email, etc.
+
+This page presents examples on basic configuration. If you need to get/set more properties you can use the method below:
 - getProperties
 - setProperties
 
@@ -27,8 +28,8 @@ UserManager userManager = client.userManager();
 
 ## Create
 
-APIs below are available to create user / group:
-- createUser which takes an user
+APIs below are available to create user/group:
+- createUser which takes a user
 - createGroup which takes a group
 
 Let's first create a user:
@@ -54,8 +55,8 @@ group = userManager.createGroup(group);
 
 ## Fetch
 
-APIs below are available to fetch user / group:
-- fetchUser which takes an user name
+APIs below are available to fetch user/group:
+- fetchUser which takes a user name
 - fetchCurrentUser which takes nothing
 - fetchGroup which takes a group name
 
@@ -81,7 +82,7 @@ Users users = group.fetchMemberUsers();
 Groups subGroups = group.fetchMemberGroups();
 ```
 
-You can also retrieve them during the fetch with help of fetch properties:
+You can also retrieve them during the fetch with help of the fetch properties:
 ```java
 Group group = userManager.fetchPropertiesForGroup("memberUsers", "memberGroups", "parentGroups")
                          .fetchGroup("myGroup");
@@ -92,13 +93,13 @@ List<String> parentGroups = group.getParentGroups();
 
 ## Update
 
-APIs below are available to update user / group:
-- updateUser which takes an user
-- updateUser which takes an user name and a, user
+APIs below are available to update user/group:
+- updateUser which takes a user
+- updateUser which takes a user name and a user
 - updateGroup which takes a group
 - updateGroup which takes a group name and a group
-- addUserToGroup which takes an user name and a group name
-- attachGroupToUser which takes a group name and an user name
+- addUserToGroup which takes a user name and a group name
+- attachGroupToUser which takes a group name and a user name
 
 Let's update our user:
 ```java
@@ -121,8 +122,8 @@ userManager.addUserToGroup("jean", "myGroup");
 
 ## Delete
 
-APIs below are available to delete user / group:
-- deleteUser which takes an user name
+APIs below are available to delete user/group:
+- deleteUser which takes a user name
 - deleteGroup which takes a group name
 
 Let's delete our entities:
@@ -133,7 +134,7 @@ userManager.deleteGroup("myGroup");
 
 ## Search
 
-APIs below are available to search user / group:
+APIs below are available to search user/group:
 - searchUser which takes a pattern
 - searchUser which takes a pattern, current page index and page size
 - searchGroup which takes a pattern
@@ -163,7 +164,7 @@ do {
 } while (users.isNextPageAvailable());
 ```
 
-Depending on you directory configuration, pattern will act differently, see `substringMatchType` in your directory configuration.
+Depending on your directory configuration, the pattern will act differently, see `substringMatchType` in your directory configuration.
 
 Let's search for john:
 ```java

@@ -24,7 +24,7 @@ Repository repository = client.repository();
 
 ## Create
 
-APIs below are available to create document:
+APIs below are available to create a document:
 - createDocumentByPath which takes parent path and a `Document`
 - createDocumentById which takes parent id and a `Document`
 
@@ -95,7 +95,7 @@ If you want to retrieve all children you should use [page provider APIs](#page-p
 APIs below are available to update document:
 - updateDocument which takes a document (with an id)
 
-During the update, only dirty properties detected on client side will be sent to server.
+During the update, only dirty properties detected on client side are sent to the server.
 
 Let's update our note:
 ```java
@@ -121,7 +121,7 @@ note = repository.updateDocument(note);
 ```
 
 Id is mandatory because this is how Nuxeo Server resolved the document to update. There's currently no way to update a document with only its path.
-Also, with this way you can't call `Document#updateDocument` because your object is not connected with client, but the one returned from `repository#updateDocument` is connected.
+Also, with this way, you can't call `Document#updateDocument` because your object is not connected with client, but the one returned from `repository#updateDocument` is connected.
 
 ## Delete
 
@@ -138,7 +138,7 @@ repository.deleteDocument("UUID");
 
 As seen in [configuration]({{page page='configuration'}}), you can configure enrichers and fetch properties for your manager, here the repository.
 
-Depending on enricher or property to fetch you use, you will either get a proper Java Client object or a JSON representation in Map and List. Deserialization into proper object leverage entities registered during client creation, see [marshalling configuration]({{page page='configuration#marshalling'}}) for more information.
+Depending on enricher or property to fetch your use, you will either get a proper Java Client object or a JSON representation in Map and List. Deserialization into proper object leverage entities registered during client creation, see [marshalling configuration]({{page page='configuration'}}#marshalling) for more information.
 
 For instance, `breadcrumb` enricher adds a `Documents` JSON representation in the context parameter:
 ```java
@@ -167,7 +167,7 @@ for (Map<String, String> rendition : renditions) {
 }
 ```
 
-Same behavior applies on fetch properties.
+Same behavior applies to fetch properties.
 
 For instance, on `dc:creator` we have:
 ```java
@@ -183,13 +183,13 @@ Document file = repository.enrichersForDocument("renditions", "thumbnail", "brea
                           .fetchDocumentByPath("/folder/file");
 ```
 
-## Query + Pagination
+## Query and Pagination
 
 APIs below are available to query documents:
-- query which take a NXQL query
-- query which take a NXQL query, page size, current page index, max results, sort by, sort order and query params (except query, others are optional)
+- query which takes an NXQL query
+- query which takes an NXQL query, page size, current page index, max results, sort by, sort order and query params (except query, others are optional)
 
-Query method taking only a NXQL query is driven by server side configuration, see query endpoint [documentation]({{page space='nxdoc' page='query-endpoint'}}).
+Query method taking only an NXQL query is driven by server side configuration, see query endpoint [documentation]({{page space='nxdoc' page='query-endpoint'}}).
 
 Let's see how retrieving a paginated query result and loop over pages:
 ```java
@@ -206,8 +206,8 @@ do {
 
 ## Page provider
 
-APIs below are available to query documents with page provider:
-- queryByProvider which take a NXQL query, page size, current page index, max results, sort by, sort order and query params (except query, others are optional)
+API below is available to query documents with page provider:
+- queryByProvider which takes an NXQL query, page size, current page index, max results, sort by, sort order and query params (except query, others are optional)
 
 Let's see how retrieving a paginated query result and loop over pages:
 ```java
@@ -239,7 +239,7 @@ ACL acl = acp.getAcls()
 List<ACE> aces = acl.getAces();
 ```
 
-As `Document` is a [connectable entity]({{page page='configuration#objects'}}) we can fetch ACP directly from it but also handle them:
+As `Document` is a [connectable entity]({{page page='configuration'}}#objects) we can fetch ACP directly from it but also handle them:
 ```java
 Document note = repository.fetchDocumentByPath("/folder/note001");
 // fetch ACP

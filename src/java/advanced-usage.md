@@ -10,16 +10,15 @@ labels:
 tree_item_index: 900
 section_parent: java
 toc: true
-
 ---
 
 This section is about how to extend Nuxeo Java Client.
 
 ## Deserialize Your POJO
 
-Let's you have added writer and reader server side for a new kind of object. Now you want to have proper java object within the client. The new entity has `custom-json-object` entity type, this will help Nuxeo Java Client to deserialize it.
+Let's say that you have added writer and reader server side for a new kind of object. Now you want to have proper Java object within the client. The new entity has `custom-json-object` entity type, it will help Nuxeo Java Client to deserialize it.
 
-First we will create a java class for this entity:
+First, we will create a Java class for this entity:
 ```java
 public class CustomJSONObject extends Entity {
 
@@ -54,7 +53,7 @@ public class CustomJSONObject extends Entity {
 }
 ```
 
-Now we have this object, we can register it during client creation:
+Now that we have this object, we can register it during client creation:
 ```java
 NuxeoClient client = new NuxeoClient.Builder()
                                     .url("http://localhost:8080/nuxeo")
@@ -64,14 +63,14 @@ NuxeoClient client = new NuxeoClient.Builder()
                                     .connect();
 ```
 
-Now we can call an operation returning this entity and get a proper java object:
+Now we can call an operation returning this entity and get a proper Java object:
 ```java
 CustomJSONObject custom = client.operation("Custom.MyOperation").execute();
 ```
 
 ## Make Your POJO a Connectable Entity
 
-We want to change our POJO to make it connectable, this will allow to have sugar method doing request to Nuxeo Server on the object.
+We want to change our POJO to make it connectable, this will allow the sugar method to send requests to the Nuxeo Server on the object.
 
 We bind our POJO to `RepositoryAPI` in order to do requests, let's change it to:
 ```java
@@ -118,7 +117,7 @@ public class CustomJSONObject extends ConnectableEntity<RepositoryAPI, CustomJSO
 }
 ```
 
-In a [connectable entity]({{page page='configuration#objects'}}) you also have access to `NuxeoClient`, which allows to use other managers from you POJO:
+In a [connectable entity]({{page page='configuration#objects'}}) you also have access to `NuxeoClient`, which allows to use other managers from your POJO:
 ```java
 public class CustomJSONObject extends ConnectableEntity<RepositoryAPI, CustomJSONObject> {
 
@@ -177,3 +176,7 @@ public class CustomJSONObject extends ConnectableEntity<CustomJSONAPI, CustomJSO
 
 }
 ```
+
+* * *
+
+**POJO**: Plain Old Java Object
