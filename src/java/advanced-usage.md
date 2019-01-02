@@ -70,7 +70,7 @@ CustomJSONObject custom = client.operation("Custom.MyOperation").execute();
 
 ## Make Your POJO a Connectable Entity
 
-We want to change our POJO to make it connectable, this will allow the sugar method to send requests to the Nuxeo Server on the object.
+We want to change our POJO to make it connectable, this will allow the convenient method to send requests to the Nuxeo Server on the object.
 
 We bind our POJO to `RepositoryAPI` in order to do requests, let's change it to:
 ```java
