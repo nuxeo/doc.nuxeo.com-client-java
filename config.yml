@@ -1,13 +1,15 @@
 default:
   site:
     review_period: '13 months'
-    default_space: 'client'
     spaces:
       -
-        space_path: clients/java
+        space_path: java
         space_name: Client SDK - Java
+    branch: '3.1'
     dev_browser_path: /java
-  verify_paths:
-    - index.html
+    versions:
+      - label: Java 3.1
+        url_path: '3.1'
+        is_current_version: true
 development:
   isDev: true

@@ -1,4 +1,4 @@
-# Documentation Content
+# Documentation Content - Java
 
 # Development
 ## Requirements
@@ -18,7 +18,7 @@ git reset --hard
 npm run dev
 ```
 
-Refer to [the authoring instrutions](https://github.com/nuxeo/doc.nuxeo.com/blob/master/docs/writing-documentation.md#installation) for further details. Hint: append `/nxdoc` or `/userdoc` to the URL.
+Refer to [the authoring instrutions](https://github.com/nuxeo/doc.nuxeo.com/blob/master/docs/writing-documentation.md#installation) for further details.
 
 ### Change browser
 To [change the from the default browser](https://github.com/nuxeo/doc.nuxeo.com/blob/master/README.md#change-browser).
