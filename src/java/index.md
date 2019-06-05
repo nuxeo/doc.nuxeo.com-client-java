@@ -2,17 +2,16 @@
 title: Java Client SDK
 description: Nuxeo Client SDK - Java
 review:
-    comment: ''
-    date: '2018-01-02'
-    status: ok
+  comment: ''
+  date: '2018-01-02'
+  status: ok
 labels:
-    - java-client
+  - java-client
 toc: true
 is_overview: true
-
 ---
 
-The Nuxeo Java Client is a  Java client library for Nuxeo REST API.
+The Nuxeo Java Client is a Java client library for Nuxeo REST API.
 
 It is compatible with all Nuxeo versions as of LTS 2015.
 
@@ -25,6 +24,7 @@ Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environm
 To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.1.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.1.1-SNAPSHOT%7Ejar%7E).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
+
 ```xml
 <dependency>
   <groupId>org.nuxeo.client</groupId>
@@ -45,6 +45,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 ### Client creation
 
 Nuxeo Java Client is created with help of its `Builder`. Once every options are submitted, last step is to build the client and test the connection to Nuxeo Server:
+
 ```java
 NuxeoClient client = new NuxeoClient.Builder()
                                     .url("http://localhost:8080/nuxeo")
@@ -60,6 +61,7 @@ More documentation about client [options]({{page page=''}}).
 ### Fetch your first document
 
 Below is how we can retrieve default domain from a stock Nuxeo Server:
+
 ```java
 Document domain = client.repository().fetchDocumentByPath("/default-domain");
 String title = domain.getPropertyValue("dc:title"); // should be equal to "Domain"
