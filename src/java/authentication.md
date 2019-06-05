@@ -2,18 +2,18 @@
 title: Authentication
 description: Handle authentication with Nuxeo Java Client
 review:
-    comment: ''
-    date: '2018-01-02'
-    status: ok
+  comment: ''
+  date: '2018-01-02'
+  status: ok
 labels:
-    - java-client
+  - java-client
 tree_item_index: 100
 section_parent: clients/java
 toc: true
-
 ---
 
 Nuxeo Java Client handles these authentication method:
+
 - basic authentication via `BasicAuthInterceptor`
 - portal SSO authentication via `PortalSSOAuthInterceptor`
 - token authentication via `TokenAuthInterceptor`
@@ -21,11 +21,13 @@ Nuxeo Java Client handles these authentication method:
 ### Basic authentication
 
 The default authentication method is the basic authentication. Client builder has a convenient method to configure Nuxeo Java Client with a basic authentication:
+
 ```java
 new NuxeoClient.Builder().authentication("Administrator", "Administrator");
 ```
 
 Whose equivalent is:
+
 ```java
 new NuxeoClient.Builder().authentication(new BasicAuthInterceptor("Administrator", "Administrator"));
 ```
@@ -33,12 +35,15 @@ new NuxeoClient.Builder().authentication(new BasicAuthInterceptor("Administrator
 ### Portal SSO authentication
 
 Once Portal SSO authentication has been activated on your Nuxeo server you can use this method to connect the java client with:
+
 ```java
 new NuxeoClient.Builder().authentication(new PortalSSOAuthInterceptor("Administrator", "nuxeo5secretkey"));
 ```
 
 ### Token authentication
+
 Token authentication is enabled by default on Nuxeo server, to use it in java client
+
 ```java
 new NuxeoClient.Builder().authentication(new TokenAuthInterceptor("nuxeoToken"));
 ```
@@ -50,6 +55,7 @@ By design, Nuxeo Java Client leverage `OkHttp` `Interceptor` interface to handle
 This is what expect the method: `NuxeoClient.Builder#authentication(Interceptor)`.
 
 You just need to implement one method which will be responsible to inject the appropriate header:
+
 ```java
 public class MyAuthInterceptor implements Interceptor {
 
@@ -72,6 +78,7 @@ public class MyAuthInterceptor implements Interceptor {
 ```
 
 Then you can use it:
+
 ```java
 new NuxeoClient.Builder().authentication(new MyAuthInterceptor("mySuperToken"));
 ```
