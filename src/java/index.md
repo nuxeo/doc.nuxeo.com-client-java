@@ -15,13 +15,13 @@ The Nuxeo Java Client is a Java client library for Nuxeo REST API.
 
 It is compatible with all Nuxeo versions as of LTS 2015.
 
-## Getting started
+## Getting Started
 
 Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environment'}}) to have a running Nuxeo instance on your local machine.
 
 ### Installation
 
-To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.1.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.1.1-SNAPSHOT%7Ejar%7E).
+To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.2.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.2.1-SNAPSHOT%7Ejar%7E).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
 
@@ -29,7 +29,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 <dependency>
   <groupId>org.nuxeo.client</groupId>
   <artifactId>nuxeo-java-client</artifactId>
-  <version>3.1.1-SNAPSHOT</version>
+  <version>3.2.1-SNAPSHOT</version>
 </dependency>
 
 <repository>
@@ -42,7 +42,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 </repository>
 ```
 
-### Client creation
+### Client Creation
 
 Nuxeo Java Client is created with help of its `Builder`. Once every options are submitted, last step is to build the client and test the connection to Nuxeo Server:
 
@@ -56,9 +56,9 @@ NuxeoClient client = new NuxeoClient.Builder()
 
 Client is now ready to execute requests to Nuxeo Server. After its creation, it will contain the current Nuxeo user and the Nuxeo Server version.
 
-More documentation about client [options]({{page page=''}}).
+More documentation about client [options]({{page page='configuration'}}).
 
-### Fetch your first document
+### Fetch Your First Document
 
 Below is how we can retrieve default domain from a stock Nuxeo Server:
 
