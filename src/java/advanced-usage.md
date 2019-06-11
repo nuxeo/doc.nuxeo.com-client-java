@@ -1,5 +1,5 @@
 ---
-title: Advanced Usages
+title: Advanced Usage
 description: How to extend Nuxeo Java Client
 review:
     comment: ''
