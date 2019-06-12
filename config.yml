@@ -4,7 +4,7 @@ default:
     spaces:
       - space_path: java
         space_name: Client SDK - Java
-    branch: 'master-build-test'
+    branch: '3.1'
     dev_browser_path: java
     versions:
       - label: Java 3.1
