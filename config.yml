@@ -5,7 +5,7 @@ default:
       - space_path: java
         space_name: Client SDK - Java
     branch: '3.1'
-    dev_browser_path: java
+    dev_browser_path: 'java/3.1'
     versions:
       - label: Java 3.1
         url_path: '3.1'
