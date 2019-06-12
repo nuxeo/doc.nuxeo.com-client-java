@@ -7,8 +7,7 @@ default:
     branch: master
     dev_browser_path: java
     versions:
-      - label: Java 3.1
-        url_path: '3.1'
+      - label: Java Rolling Release
         is_current_version: true
 development:
   isDev: true
