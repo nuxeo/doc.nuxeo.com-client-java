@@ -124,7 +124,7 @@ NuxeoClient owns only common configuration.
 Managers own common and specific configuration, for instance, `Operation` owns the `voidOperation` configuration besides common ones.
 
 {{> anchor 'configuration-isolation'}}
-{{#> callout type='tip' heading='Configuration Isolation'}}
+### Configuration Isolation
 The manager configuration is isolated from the client one.
 
 This means that each configuration made on a manager belongs to this manager instance.
@@ -138,7 +138,6 @@ Document doc1 = repository1.fetchDocumentRoot();
 // document containing only dublincore
 Document doc2 = repository2.fetchDocumentRoot();
 ```
-{{/callout}}
 
 ### Common Configuration
 
@@ -213,10 +212,14 @@ Documents breadcrumb = doc.getContextParameter("breadcrumb");
 
 &nbsp;
 
-<div class="row" data-equalizer data-equalize-on="medium"><div class="column medium-6">{{#> panel heading='Related sections in this documentation'}}
+<div class="row" data-equalizer data-equalize-on="medium">
+<div class="column medium-6">
+{{#> panel heading='Related sections in this documentation'}}
 
 - [Nuxeo - Special HTTP Headers]({{page space='nxdoc' page='special-http-headers'}})
 
-{{/panel}}</div></div>
+{{/panel}}
+</div>
+</div>
 
 &nbsp;
