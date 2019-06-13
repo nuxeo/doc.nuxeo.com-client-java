@@ -7,7 +7,8 @@ default:
     branch: master
     dev_browser_path: java
     versions:
-      - label: Next Java
+      - label: Java 3.2
+        url_path: '3.2'
         is_current_version: true
 development:
   isDev: true
