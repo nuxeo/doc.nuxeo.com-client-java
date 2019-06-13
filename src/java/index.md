@@ -2,9 +2,9 @@
 title: Java Client SDK 3.2
 description: Nuxeo Client SDK - Java
 review:
-  comment: ''
-  date: '2018-01-02'
-  status: ok
+    comment: ''
+    date: '2019-06-18'
+    status: ok
 labels:
   - java-client
 toc: true

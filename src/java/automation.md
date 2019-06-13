@@ -3,7 +3,7 @@ title: Automation
 description: Run Operation and Automation Chain
 review:
     comment: ''
-    date: '2018-01-02'
+    date: '2019-06-18'
     status: ok
 labels:
     - java-client

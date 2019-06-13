@@ -2,9 +2,9 @@
 title: Authentication
 description: Handle authentication with Nuxeo Java Client
 review:
-  comment: ''
-  date: '2018-01-02'
-  status: ok
+    comment: ''
+    date: '2019-06-18'
+    status: ok
 labels:
   - java-client
 tree_item_index: 100
