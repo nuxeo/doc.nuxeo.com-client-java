@@ -2,10 +2,10 @@ default:
   site:
     review_period: '13 months'
     spaces:
-      - space_path: java
+      - space_path: client-java
         space_name: Java Client SDK
     branch: master
-    dev_browser_path: java
+    dev_browser_path: client-java
     versions:
       - label: Next Java
         is_current_version: true
