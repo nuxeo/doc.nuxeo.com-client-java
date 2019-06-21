@@ -36,10 +36,6 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
   <id>public-releases</id>
   <url>http://maven.nuxeo.com/nexus/content/repositories/public-releases/</url>
 </repository>
-<repository>
-  <id>public-snapshots</id>
-  <url>http://maven.nuxeo.com/nexus/content/repositories/public-snapshots/</url>
-</repository>
 ```
 
 ### Client Creation
