@@ -19,7 +19,7 @@ It is compatible with all Nuxeo versions as of LTS 2015.
 
 Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environment'}}) to have a running Nuxeo instance on your local machine.
 
-### Installation
+## Installation
 
 To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.2.0](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.2.0%7Ejar%7E).
 
@@ -38,7 +38,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 </repository>
 ```
 
-### Client Creation
+## Client Creation
 
 Nuxeo Java Client is created with help of its `Builder`. Once every options are submitted, last step is to build the client and test the connection to Nuxeo Server:
 
@@ -54,7 +54,7 @@ Client is now ready to execute requests to Nuxeo Server. After its creation, it 
 
 More documentation about client [options]({{page page='configuration'}}).
 
-### Fetch Your First Document
+## Fetch Your First Document
 
 Below is how we can retrieve default domain from a stock Nuxeo Server:
 
@@ -62,6 +62,10 @@ Below is how we can retrieve default domain from a stock Nuxeo Server:
 Document domain = client.repository().fetchDocumentByPath("/default-domain");
 String title = domain.getPropertyValue("dc:title"); // should be equal to "Domain"
 ```
+
+## Compatibility
+
+The 3.3 Nuxeo Java Client version is compatible with Java 7 and greater.
 
 &nbsp;
 
