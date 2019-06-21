@@ -16,6 +16,7 @@ Nuxeo Java Client handles these authentication methods:
 - basic authentication via `BasicAuthInterceptor`
 - portal SSO authentication via `PortalSSOAuthInterceptor`
 - token authentication via `TokenAuthInterceptor`
+- OAuth2 authentication via `OAuth2AuthInterceptor`
 
 ## Basic Authentication
 
@@ -54,6 +55,22 @@ JWT authentication can be enabled on Nuxeo server if you set up a secret with `n
 new NuxeoClient.Builder().authentication(new JWTAuthInterceptor("nuxeoToken"));
 ```
 There's currently no way to obtain a JWT token through built-in REST API.
+
+## OAuth 2 Authentication
+
+OAuth 2 authentication is enabled by default on Nuxeo server, you just need to create an OAuth 2 Client in Nuxeo, see [Nuxeo - OAuth2 Client Registration]({{page space='nxdoc' page='using-oauth2'}}#client-registration).
+
+Once you have your `clientId` and `clientSecret` you need to implement an [OAuth 2 Grant Flow]({{page space='nxdoc' page='using-oauth2'}}#oauth-2-authorization-grant-flow) in your application to retrieve an authentication code. With this code you can setup the OAuth 2 authentication in the Java client with:
+
+```java
+new NuxeoClient.Builder().authentication(
+    OAuth2AuthInterceptor.obtainAuthFromAuthorizationCode("http://localhost:8080/nuxeo", clientId, authCode));
+// or if you have set up a client with a clientSecret
+new NuxeoClient.Builder().authentication(
+    OAuth2AuthInterceptor.obtainAuthFromAuthorizationCode("http://localhost:8080/nuxeo", clientId, clientSecret, authCode));
+```
+
+After that, your client will be able to access Nuxeo using OAuth 2 and it will refresh the OAuth 2 token if needed.
 
 ## Implement Your Own
 

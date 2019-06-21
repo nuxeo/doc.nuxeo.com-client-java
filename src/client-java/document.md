@@ -151,6 +151,29 @@ Document note = repository.fetchDocumentByPath("/folder/note001");
 note.adapter(CommentAdapter::new).create(comment);
 ```
 
+## Manipulate Document Properties
+
+Once you have retrieved your document you can get/set property values with the API below:
+- getPropertyValue
+- setPropertyValue
+
+Example:
+
+```java
+// getPropertyValue
+Document note = repository.fetchDocumentByPath("/folder/note001");
+String noteText = note.getPropertyValue("note:note");
+// getPropertyValue with XPath
+Document note = repository.fetchDocumentByPath("/folder/note001");
+String firstContributor = note.getPropertyValue("dc:contributors/0");
+// setPropertyValue
+Document note = repository.fetchDocumentByPath("/folder/note001");
+note.setPropertyValue("note:note", "Some update in content");
+// setPropertyValue with list/complex
+Document note = repository.fetchDocumentByPath("/folder/note001");
+note.setPropertyValue("dc:subjects", List.of("art/architecture", "sciences/astronomy"));
+```
+
 ## Enrichers / Fetch Properties
 
 As seen in [configuration]({{page page='configuration'}}), you can configure enrichers and fetch properties for your manager, here the repository.
