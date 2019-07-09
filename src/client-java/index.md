@@ -1,10 +1,10 @@
 ---
-title: Java Client SDK 3.1
+title: Java Client SDK 3.2
 description: Nuxeo Client SDK - Java
 review:
-  comment: ''
-  date: '2018-01-02'
-  status: ok
+    comment: ''
+    date: '2019-06-18'
+    status: ok
 labels:
   - java-client
 toc: true
@@ -21,7 +21,7 @@ Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environm
 
 ### Installation
 
-To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.2.1-SNAPSHOT](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.2.1-SNAPSHOT%7Ejar%7E).
+To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.2.0](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.2.0%7Ejar%7E).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
 
@@ -29,7 +29,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 <dependency>
   <groupId>org.nuxeo.client</groupId>
   <artifactId>nuxeo-java-client</artifactId>
-  <version>3.2.1-SNAPSHOT</version>
+  <version>3.2.0</version>
 </dependency>
 
 <repository>
