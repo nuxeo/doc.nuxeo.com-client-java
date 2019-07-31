@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "co": "^4.6.0",
-    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.defaultsdeep": "^4.6.1",
     "node-yaml-config": "0.0.5",
-    "nuxeo-docs-builder": "nuxeo/doc.nuxeo.com#v12.0.1",
+    "nuxeo-docs-builder": "nuxeo/doc.nuxeo.com#v12.0.2",
     "thenify": "^3.2.1"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "bs-fullscreen-message": "^1.1.0",
-    "tap": "^14.2.2"
+    "tap": "^14.5.0"
   },
   "main": "build.js",
   "config": {
