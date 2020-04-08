@@ -45,7 +45,7 @@ Token authentication is enabled by default on Nuxeo server, to use it in Java cl
 ```java
 new NuxeoClient.Builder().authentication(new TokenAuthInterceptor("nuxeoToken"));
 ```
-Token obtention is not implemented in java client and should be done by following this [documentation](https://github.com/nuxeo/nuxeo/tree/master/nuxeo-services/login/nuxeo-platform-login-token#implementation).
+Token obtention is not implemented in java client and should be done by following this [documentation](https://github.com/nuxeo/nuxeo/tree/master/modules/platform/login/nuxeo-platform-login-token#implementation).
 
 ## JWT Authentication
 
