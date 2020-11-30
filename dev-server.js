@@ -1,5 +1,4 @@
-'use strict';
-/* eslint-env es6 */
+require('dotenv').config();
 
 // Set Debugging up
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -9,13 +8,12 @@ if (!process.env.DEBUG) {
 }
 
 // check for no-clean switch
-const no_clean = !!process.argv.find(val => val === '--no-clean');
+const no_clean = !!process.argv.find((val) => val === '--no-clean');
 
 // Spawns a dev server with Metalsmith & Webpack live reloading via Browsersync
-const debug_lib = require('debug');
-const debug = debug_lib('docs-server');
-const error = debug_lib('docs-server:error');
-const info = debug_lib('docs-server:info');
+const debug = require('debug')('docs-server');
+const error = debug.extend('error');
+const info = debug.extend('info');
 
 info('no-clean', no_clean);
 
@@ -54,15 +52,12 @@ const content_404 = fs.readFileSync(path.join(__dirname, '404.html'));
 // Initialize Browsersync and webpack
 const sync = browser_sync.create();
 
-const get_filter = file => {
+const get_filter = (file) => {
   const file_relative = path.relative(__dirname, file);
   debug(`File relative: ${file_relative}`);
   const first_dir = file_relative.split('/').shift();
   if (first_dir === 'src') {
-    return file_relative
-      .split('/')
-      .slice(1)
-      .join('/');
+    return file_relative.split('/').slice(1).join('/');
   } else {
     return '';
   }
@@ -73,12 +68,12 @@ const get_filter = file => {
 const build_docs = () => {
   info('Building Docs');
 
-  co(function*() {
+  co(function* () {
     // Pre-build
     const pre_build = [pre_builder({ branch, repo_id: '', source_path: target_repo_path })];
     const metadata = {};
     const pre_build_result = yield pre_build;
-    pre_build_result.forEach(data => extend(metadata, data));
+    pre_build_result.forEach((data) => extend(metadata, data));
 
     // Build
     yield builder(target_repo_path, metadata, target_repo_site, { branch, repo_id: '', repo_path: source_repo_path });
@@ -87,7 +82,7 @@ const build_docs = () => {
 
     info('Docs build successfully finished! Reloading browsers.');
     sync.reload();
-  }).catch(err => {
+  }).catch((err) => {
     error('Docs build error');
     error(err);
     return sync.sockets.emit('fullscreen:message', {
@@ -121,8 +116,8 @@ sync.init(
           path.join(__dirname, 'config.yml')
         ],
         fn: (event, file) => {
+          debug(`File changed: ${file}`);
           if (!file.startsWith('assets/nx_assets')) {
-            debug(`File changed: ${file}`);
             process.env.FILTER = get_filter(file);
 
             build_docs();
