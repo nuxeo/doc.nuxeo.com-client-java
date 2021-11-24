@@ -134,6 +134,23 @@ Just simple as:
 repository.deleteDocument("UUID");
 ```
 
+## Adapters
+
+You can use the Adapters API to access the [Nuxeo Web Adapter]({{page space='nxdoc' page='rest-api-web-adapters'}}) of your document with the method `Document#adapter`.
+
+The java client provide the following adapters:
+- AnnotationAdapter
+- CommentAdapter
+
+You can use it like below:
+
+```java
+Comment comment = new Comment();
+comment.setText("A comment");
+Document note = repository.fetchDocumentByPath("/folder/note001");
+note.adapter(CommentAdapter::new).create(comment);
+```
+
 ## Enrichers / Fetch Properties
 
 As seen in [configuration]({{page page='configuration'}}), you can configure enrichers and fetch properties for your manager, here the repository.
