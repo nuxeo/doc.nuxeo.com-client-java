@@ -78,8 +78,12 @@ String label = group.getGroupLabel(); // equals to My Group
 
 As `Group` is a [connectable entity]({{page page='configuration#objects'}}) and we get `myGroup` from client we can do the following:
 ```java
+// depending on the Nuxeo Server configuration, this will retrieve the first 50 entites
 Users users = group.fetchMemberUsers();
-Groups subGroups = group.fetchMemberGroups();
+Groups subGroups = group.fetchMemberGroups(); 
+// you can paginate the fetch with the API below
+Users users = group.fetchMemberUsers(pageIndex, pageSize);
+Groups subGroups = group.fetchMemberGroups(pageIndex, pageSize);
 ```
 
 You can also retrieve them during the fetch with help of the fetch properties:
