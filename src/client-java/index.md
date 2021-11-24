@@ -1,5 +1,5 @@
 ---
-title: Java Client SDK 3.5
+title: Java Client SDK 3.6
 description: Nuxeo Client SDK - Java
 review:
     comment: ''
@@ -21,7 +21,7 @@ Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environm
 
 ## Installation
 
-To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.5.0](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.3.0%7Ejar%7E).
+To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 3.6.0](https://maven.nuxeo.org/nexus/#nexus-search;gav%7Eorg.nuxeo.client%7Enuxeo-java-client%7E3.3.0%7Ejar%7E).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
 
@@ -29,7 +29,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 <dependency>
   <groupId>org.nuxeo.client</groupId>
   <artifactId>nuxeo-java-client</artifactId>
-  <version>3.5.0</version>
+  <version>3.6.0</version>
 </dependency>
 
 <repository>
@@ -54,6 +54,10 @@ Client is now ready to execute requests to Nuxeo Server. After its creation, it 
 
 More documentation about client [options]({{page page='configuration'}}).
 
+{{#> callout type='note' heading='just build the client'}}
+You can use `build` instead of `connect` to not perform any request to check the authentication.
+{{/callout}}
+
 ## Fetch Your First Document
 
 Below is how we can retrieve default domain from a stock Nuxeo Server:
@@ -65,7 +69,7 @@ String title = domain.getPropertyValue("dc:title"); // should be equal to "Domai
 
 ## Compatibility
 
-The 3.5 Nuxeo Java Client version is compatible with Java 11 and greater.
+The 3.6 Nuxeo Java Client version is compatible with Java 11 and greater.
 
 &nbsp;
 

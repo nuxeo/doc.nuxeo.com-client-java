@@ -58,6 +58,8 @@ There's currently no way to obtain a JWT token through built-in REST API.
 
 ## OAuth 2 Authentication
 
+### With An Authorization Flow
+
 OAuth 2 authentication is enabled by default on Nuxeo server, you just need to create an OAuth 2 Client in Nuxeo, see [Nuxeo - OAuth2 Client Registration]({{page space='nxdoc' page='using-oauth2'}}#client-registration).
 
 Once you have your `clientId` and `clientSecret` you need to implement an [OAuth 2 Grant Flow]({{page space='nxdoc' page='using-oauth2'}}#oauth-2-authorization-grant-flow) in your application to retrieve an authentication code. With this code you can setup the OAuth 2 authentication in the Java client with:
@@ -71,6 +73,14 @@ new NuxeoClient.Builder().authentication(
 ```
 
 After that, your client will be able to access Nuxeo using OAuth 2 and it will refresh the OAuth 2 token if needed.
+
+### With an Access Token
+
+You can also use OAuth 2 authentication within the Java client with an access token. This is useful when the software using the client is responsible to obtain and refresh the OAuth Token.
+
+```java
+new NuxeoClient.Builder().authentication(OAuth2AuthInterceptor.createAuthFromToken(accessToken));
+```
 
 ## Implement Your Own
 
