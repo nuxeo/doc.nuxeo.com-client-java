@@ -138,7 +138,7 @@ repository.deleteDocument("UUID");
 
 You can use the Adapters API to access the [Nuxeo Web Adapter]({{page space='nxdoc' page='rest-api-web-adapters'}}) of your document with the method `Document#adapter`.
 
-The java client provide the following adapters:
+The Java client provides the following adapters:
 - AnnotationAdapter
 - CommentAdapter
 
