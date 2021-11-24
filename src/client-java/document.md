@@ -255,8 +255,9 @@ Let's see how retrieving a paginated query result and loop over pages:
 Documents documents = null;
 do {
     String pageIndex = documents == null ? "0" : String.valueOf(documents.getCurrentPageIndex() + 1);
+    // the queryByProvider API has the ability to take several queryParams as String...
     documents = repository.queryByProvider("CURRENT_DOC_CHILDREN", "50", pageIndex, null,
-            "dc:title,dc:description", "ASC,DESC", null);
+            "dc:title,dc:description", "ASC,DESC");
     for (Document document : documents.getEntries()) {
         // do something with document
     }
