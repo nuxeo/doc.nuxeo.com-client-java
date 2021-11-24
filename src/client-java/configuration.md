@@ -143,9 +143,11 @@ Document doc2 = repository2.fetchDocumentRoot();
 
 | Method                                                 | Description                                                                                 |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| timeout(long)                                          | Configure connect and read timeout, unit is seconds                                         |
+| timeout(long)                                          | Configure connect, read and write timeout, unit is seconds                                  |
 | connectTimeout(long)                                   | Configure connect timeout, unit is seconds                                                  |
 | readTimeout(long)                                      | Configure read timeout, unit is seconds                                                     |
+| writeTimeout(long)                                     | Configure write timeout, unit is seconds                                                    |
+| retryOnConnectionFailure(boolean)                      | Configure to retry or not when a connectivity problem is encountered                        |
 | header(String, boolean)                                | Replace header of a given name with given value                                             |
 | header(String, int, int...)                            | Replace header of a given name with given values                                            |
 | header(boolean, String, int, int...)                   | Replace or append header of a given name with given values                                  |
