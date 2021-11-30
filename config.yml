@@ -7,6 +7,18 @@ default:
     branch: master
     dev_browser_path: client-java
     versions:
+      - label: Java 3.11
+        url_path: '3.11'
+      - label: Java 3.10
+        url_path: '3.10'
+      - label: Java 3.9
+        url_path: '3.9'
+      - label: Java 3.8
+        url_path: '3.8'
+      - label: Java 3.7
+        url_path: '3.7'
+      - label: Java 3.6
+        url_path: '3.6'
       - label: Java 3.5
         url_path: '3.5'
         is_current_version: true
