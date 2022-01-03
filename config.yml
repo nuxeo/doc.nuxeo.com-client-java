@@ -9,6 +9,8 @@ default:
     versions:
       - label: Next Version
         is_current_version: true
+      - label: Java 3.12
+        url_path: '3.12'
       - label: Java 3.11
         url_path: '3.11'
       - label: Java 3.10
