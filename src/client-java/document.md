@@ -236,7 +236,6 @@ Let's see how retrieving a paginated query result and loop over pages:
 Documents documents = null;
 do {
     String pageIndex = documents == null ? "0" : String.valueOf(documents.getCurrentPageIndex() + 1);
-    // the query API has the ability to take several queryParams as String...
     documents = repository.query("SELECT * FROM Document", "50", pageIndex, null,
             "dc:title,dc:description", "ASC,DESC");
     for (Document document : documents.getEntries()) {
@@ -245,23 +244,40 @@ do {
 } while (documents.isNextPageAvailable());
 ```
 
+If you want to use query params, you can use the API below:
+```java
+repository.query("SELECT * FROM Document WHERE dc:title= ?", "50", pageIndex, null, 
+    "dc:title,dc:description", "ASC,DESC", "My Document");
+```
+
 ## Page provider
 
 API below is available to query documents with page provider:
-- queryByProvider which takes an NXQL query, page size, current page index, max results, sort by, sort order and query params (except query, others are optional)
+- queryByProvider which takes a page provider name, page size, current page index, max results, sort by, sort order and query params (except page provider name, others are optional)
 
-Let's see how retrieving a paginated query result and loop over pages:
+Let's see how retrieving a paginated page provider result and loop over pages:
 ```java
 Documents documents = null;
 do {
     String pageIndex = documents == null ? "0" : String.valueOf(documents.getCurrentPageIndex() + 1);
-    // the queryByProvider API has the ability to take several queryParams as String...
     documents = repository.queryByProvider("CURRENT_DOC_CHILDREN", "50", pageIndex, null,
             "dc:title,dc:description", "ASC,DESC");
     for (Document document : documents.getEntries()) {
         // do something with document
     }
 } while (documents.isNextPageAvailable());
+```
+
+If your page provider declares query params, you can use for instance:
+```xml
+<coreQueryPageProvider name="search_with_params">
+  <pattern>SELECT * From Note WHERE dc:title = ?</pattern>
+  <pageSize>50</pageSize>
+</coreQueryPageProvider>
+```
+```java
+repository.queryByProvider("search_with_params", "50", pageIndex, null,
+    "dc:title,dc:description", "ASC,DESC", "My Note");
 ```
 
 ## Permissions
