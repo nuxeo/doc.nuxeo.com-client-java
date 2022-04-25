@@ -254,6 +254,7 @@ repository.query("SELECT * FROM Document WHERE dc:title= ?", "50", pageIndex, nu
 
 API below is available to query documents with page provider:
 - queryByProvider which takes a page provider name, page size, current page index, max results, sort by, sort order and query params (except page provider name, others are optional)
+- queryByProvider which takes a page provider name, page size, current page index, max results, sort by, sort order, named params and query params (except page provider name, others are optional)
 
 Let's see how retrieving a paginated page provider result and loop over pages:
 ```java
@@ -278,6 +279,18 @@ If your page provider declares query params, you can use for instance:
 ```java
 repository.queryByProvider("search_with_params", "50", pageIndex, null,
     "dc:title,dc:description", "ASC,DESC", "My Note");
+```
+
+If your page provider declares named params, you can use for instance:
+```xml
+<coreQueryPageProvider name="search_with_named_params">
+  <pattern>SELECT * From Note WHERE dc:title = :title</pattern>
+  <pageSize>50</pageSize>
+</coreQueryPageProvider>
+```
+```java
+repository.queryByProvider("search_with_params", "50", pageIndex, null,
+    "dc:title,dc:description", "ASC,DESC", Map.of("title", "My Note"));
 ```
 
 ## Permissions
