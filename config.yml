@@ -7,7 +7,7 @@ default:
     branch: master
     dev_browser_path: client-java
     versions:
-      - label: Next Version
+      - label: Java 3.13
         is_current_version: true
       - label: Java 3.12
         url_path: '3.12'
