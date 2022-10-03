@@ -1,5 +1,5 @@
 ---
-title: Java Client SDK 3.12
+title: Java Client SDK 3.14
 description: Nuxeo Client SDK - Java
 review:
     comment: ''
@@ -69,7 +69,7 @@ String title = domain.getPropertyValue("dc:title"); // should be equal to "Domai
 
 ## Compatibility
 
-The 3.12 Nuxeo Java Client version is compatible with Java 11 and greater.
+The 3.14 Nuxeo Java Client version is compatible with Java 11 and greater.
 
 &nbsp;
 
