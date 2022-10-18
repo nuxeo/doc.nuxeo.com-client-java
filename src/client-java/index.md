@@ -15,6 +15,10 @@ The Nuxeo Java Client is a Java client library for Nuxeo REST API.
 
 It is compatible with all Nuxeo versions as of LTS 2015.
 
+{{#> callout type='warning' heading='breaking changes'}}
+Method calls to _Repository#queryByProvider_ with `queryParam = null` won't compile anymore because of the introduction of `namedParameters` to the _queryByProvider_ method. You need to remove the `null` given to `queryParam` parameter.
+{{/callout}}
+
 ## Getting Started
 
 Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environment'}}) to have a running Nuxeo instance on your local machine.
