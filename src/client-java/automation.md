@@ -39,20 +39,8 @@ Let's update it:
 ```java
 file = client.operation("Document.Update")
              .param("properties", "dc:nature=card")
-             .input(file)
+             .input(new DocRef("/file001"))
              .execute();
-```
-
-{{#> callout type='note' heading='Document as Input'}}
-We can directly give the `Document` as input to automation but this serialize the whole document. This has impact on performance regarding usage of `DocRef`.
-{{/callout}}
-
-We can also do:
-```java
-Document file = client.operation("Document.Update")
-                      .param("properties", "dc:nature=card")
-                      .input(new DocRef("/file001"))
-                      .execute();
 ```
 
 
