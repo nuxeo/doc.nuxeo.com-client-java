@@ -26,7 +26,7 @@ The basic flow when you perform a request to Nuxeo Server from Nuxeo Java Client
     name: Nuxeo Java Client - Basic Flow.png
     addins#diagram#up_to_date
 --}}
-![Java Client Request flow](nx_asset://13f368cc-2faf-43b7-b011-c619b9594977 ?border=true)
+![Java Client Request flow](/nx_assets/13f368cc-2faf-43b7-b011-c619b9594977.png ?border=true)
 
 To ease usage and configuration of client we added several notions/objects.
 
