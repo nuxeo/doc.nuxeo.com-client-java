@@ -8,6 +8,7 @@ default:
     dev_browser_path: client-java
     versions:
       - label: Java 3.14
+        url_path: '3.14'
         is_current_version: true
       - label: Java 3.13
         url_path: '3.13'
