@@ -43,7 +43,7 @@ Blob fileBlob = new FileBlob(file);
 batchUpload = batchUpload.upload("0", fileBlob);
 
 // attach the blob
-batchUpload.operation(Operations.BLOB_ATTACH_ON_DOCUMENT)
+batchUpload.operationOnFile(Operations.BLOB_ATTACH_ON_DOCUMENT)
            .param("document", "/file001") // document to attach
            .execute();
 ```
@@ -79,6 +79,26 @@ Document doc = Document.createWithName("file002", "File");
 doc.setPropertyValue("file:content", batchUpload.getBatchBlob());
 doc = nuxeoClient.repository().createDocumentByPath("/", doc);
 ```
+
+### Attach several Blob to a Document Using Automation
+
+We're assuming `/file001` already exists. We're going to upload several blobs with batch upload manager and then attach them to `file001`.
+
+```java
+// create a new batch
+BatchUpload batchUpload = batchUploadManager.createBatch();
+Blob file1Blob = new FileBlob(file1);
+batchUpload = batchUpload.upload("0", file1Blob);
+Blob file2Blob = new FileBlob(file2);
+batchUpload = batchUpload.upload("1", file2Blob);
+
+// attach the blobs
+batchUpload.operationOnBatch(Operations.BLOB_ATTACH_ON_DOCUMENT)
+           .param("document", "/file001") // document to attach
+           .param("xpath", "files:files") // multivalued property to attach blobs
+           .execute();
+```
+
 
 ## Automation (Multipart Upload)
 
