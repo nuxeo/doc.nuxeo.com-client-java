@@ -1,5 +1,5 @@
 ---
-title: Java Client SDK 4.0
+title: Java Client SDK 4.1
 description: Nuxeo Client SDK - Java
 review:
     comment: ''
@@ -21,7 +21,7 @@ Follow this [tutorial]({{page space='nxdoc' page='setting-up-your-nuxeo-environm
 
 ## Installation
 
-To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 4.0.0](https://packages.nuxeo.com/#browse/search/maven=attributes.maven2.artifactId%3Dnuxeo-java-client%20AND%20version%3D4.0.0).
+To use nuxeo-java-client, you can download it from our Nexus: [Nuxeo Client Library 4.1.0](https://packages.nuxeo.com/#browse/search/maven=attributes.maven2.artifactId%3Dnuxeo-java-client%20AND%20version%3D4.1.0).
 
 If you use Maven, you need to have nuxeo-java-client as dependency:
 
@@ -29,7 +29,7 @@ If you use Maven, you need to have nuxeo-java-client as dependency:
 <dependency>
   <groupId>org.nuxeo.client</groupId>
   <artifactId>nuxeo-java-client</artifactId>
-  <version>4.0.0</version>
+  <version>4.1.0</version>
 </dependency>
 
 <repository>
@@ -69,7 +69,7 @@ String title = domain.getPropertyValue("dc:title"); // should be equal to "Domai
 
 ## Compatibility
 
-The 4.0 Nuxeo Java Client version is compatible with Java 11 and greater.
+The 4.1 Nuxeo Java Client version is compatible with Java 11 and greater.
 
 &nbsp;
 
