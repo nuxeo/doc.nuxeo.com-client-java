@@ -170,15 +170,18 @@ Document doc2 = repository2.fetchDocumentRoot();
 
 ### Builder Configuration
 
-| Method                           | Description                                             |
-| -------------------------------- | ------------------------------------------------------- |
-| authentication(String, String)   | Configure basic authentication with user/password       |
-| authentication(Interceptor)      | Configure another kind of authentication                |
-| cache(NuxeoResponseCache)        | Configure a cache for client                            |
-| connectionPool(ConnectionPool)   | Configure the OkHttp ConnectionPool                     |
-| interceptor(Interceptor)         | Add a new OkHttp interceptor                            |
-| registerEntity(String, Class<?>) | Register a new entity type in client marshalling system |
-| url(String)                      | The Nuxeo Server URL                                    |
+| Method                            | Description                                             |
+|-----------------------------------|---------------------------------------------------------|
+| authentication(String, String)    | Configure basic authentication with user/password       |
+| authentication(Interceptor)       | Configure another kind of authentication                |
+| cache(NuxeoResponseCache)         | Configure a cache for client                            |
+| connectionPool(ConnectionPool)    | Configure the OkHttp ConnectionPool                     |
+| interceptor(Interceptor)          | Add a new OkHttp interceptor                            |
+| proxy(Proxy)                      | Configure the OkHttp Proxy                              |
+| proxyAuthenticator(Authenticator) | Configure the OkHttp proxy Authenticator                |
+| proxySelector(ProxySelector)      | Configure the OkHttp ProxySelector                      |
+| registerEntity(String, Class<?>)  | Register a new entity type in client marshalling system |
+| url(String)                       | The Nuxeo Server URL                                    |
 
 You must configure authentication and URL at least.
 

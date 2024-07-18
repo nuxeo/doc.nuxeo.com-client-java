@@ -64,7 +64,12 @@ Blob blob = client.operation("Blob.Get")
                   .param("xpath", "file:content")
                   .input(new DocRef("/file001"))
                   .execute();
+try (var stream = blob.getStream()) {
+    String content = org.apache.commons.io.IOUtils.toString(stream, StandardCharsets.UTF_8);
+}
 ```
+Blobs received from the server are using `StreamBlob` implementation exposing an `InputStream` which must be closed 
+because it is directly linked to the HTTP connection.
 
 ## Document.GetVersions
 

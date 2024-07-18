@@ -129,7 +129,7 @@ Let's start the review now:
 TaskCompletionRequest taskCompletionRequest = new TaskCompletionRequest();
 Map<String, Object> variables = new HashMap<>();
 variables.put("comment", "Please review");
-variables.put("participants", Collections.singletonList("user:Administrator"));
+variables.put("participants", List.of("user:Administrator"));
 taskCompletionRequest.setVariables(variables);
 task = nuxeoClient.taskManager().complete(task.getId(), "start_review", taskCompletionRequest);
 ```

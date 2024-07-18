@@ -113,7 +113,7 @@ nuxeoClient.operation(Operations.BLOB_ATTACH_ON_DOCUMENT)
            .voidOperation(true) // allows to not download blob in response
            .param("document", "/file001") // document to attach
            .param("xpath", "files:files") // xpath to store blobs
-           .input(new Blobs(Arrays.asList(new FileBlob(file1), new FileBlob(file2))))
+           .input(new Blobs(List.of(new FileBlob(file1), new FileBlob(file2))))
            .execute();
 ```
 
@@ -140,7 +140,7 @@ In both case, you get a `StreamBlob` exposing an `InputStream` which must be clo
 
 ```java
 StreamBlob blob = nuxeoClient.repository().streamBlobByPath("/file001", "file:content");
-try (InputStream is = blob.getStream()) {
-    String content = org.apache.commons.io.IOUtils.toString(is, StandardCharsets.UTF_8);
+try (var stream = blob.getStream()) {
+    String content = org.apache.commons.io.IOUtils.toString(stream, StandardCharsets.UTF_8);
 }
 ```

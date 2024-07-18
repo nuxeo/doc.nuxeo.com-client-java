@@ -48,8 +48,8 @@ Now we want to create a new group and add John to it. Furthermore we want this g
 Group group = new Group();
 group.setGroupName("myGroup");
 group.setGroupLabel("My Group");
-group.setMemberUsers(Arrays.asList("john"));
-group.setParentGroups(Arrays.asList("members"));
+group.setMemberUsers(List.of("john"));
+group.setParentGroups(List.of("members"));
 group = userManager.createGroup(group);
 ```
 
